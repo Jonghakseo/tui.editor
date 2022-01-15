@@ -30,6 +30,7 @@ import { Strike } from './marks/strike';
 import { Emph } from './marks/emph';
 import { Code } from './marks/code';
 import { Link } from './marks/link';
+import { Parenthesis } from './marks/parenthesis';
 import { Delimiter, TaskDelimiter, MarkedText, Meta, TableCell } from './marks/simpleMark';
 import { Html } from './marks/html';
 import { CustomBlock } from './marks/customBlock';
@@ -38,6 +39,10 @@ import { smartTask } from './plugins/smartTask';
 import { createNodesWithWidget, unwrapWidgetSyntax } from '@/widget/rules';
 import { Widget, widgetNodeView } from '@/widget/widgetNode';
 import { PluginProp } from '@t/plugin';
+import { Brace } from '@/markdown/marks/brace';
+import { Brackets } from '@/markdown/marks/brackets';
+import { SingleQuote } from '@/markdown/marks/singleQuote';
+import { DoubleQuote } from '@/markdown/marks/doubleQuote';
 
 interface WindowWithClipboard extends Window {
   clipboardData?: DataTransfer | null;
@@ -162,6 +167,11 @@ export default class MdEditor extends EditorBase {
       new MarkedText(),
       new Meta(),
       new Html(),
+      new Parenthesis(),
+      new Brace(),
+      new Brackets(),
+      new SingleQuote(),
+      new DoubleQuote(),
     ]);
   }
 
